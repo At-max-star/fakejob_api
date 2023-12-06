@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'users',
+    'articles'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -66,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -168,7 +170,7 @@ DJOSER = {
 AUTH_COOKIE = 'access'
 AUTH_COOKIE_MAX_AGE = 60 * 60 * 24
 AUTH_COOKIE_SECURE = getenv('AUTH_COOKIE_SECURE', 'True') == 'True'
-AUTH_COOKIE_HTTP_ONLY = True
+AUTH_COOKIE_HTTP_ONLY = False
 AUTH_COOKIE_PATH = '/'
 AUTH_COOKIE_SAMESITE = 'None'
 
